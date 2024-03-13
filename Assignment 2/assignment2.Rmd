@@ -1,6 +1,6 @@
 ---
 title: "Assignment 2"
-author: "YOUR NAME HERE"
+author: "Emily Berlinghoff"
 date: "`r Sys.Date()`"
 output: 
 ---
