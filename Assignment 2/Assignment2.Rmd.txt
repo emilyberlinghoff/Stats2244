@@ -1,0 +1,39 @@
+---
+title: "Assignment 2"
+author: "Emily Berlinghoff"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+# Importing the data
+Check out my GitHub for the full code [*here*](https://github.com/emilyberlinghoff/Stats2244-Assignment-2).
+```{r Importing Data, echo=TRUE}
+# I've used R and Python for quantum computing before so I'm gonna use things we didn't learn in class for my own practice.
+a2 <-  read.csv("assign.csv")
+library(ggplot2)
+library(rmarkdown)
+```
+
+# Question 1  
+
+## Part a  
+The *explanatory variables* based on the research question are the **sex** and **screen**. We observe both of these variables to see how they affect the *response variable* of **physical**. 
+
+## Part b  
+The variables in the dataset I will use to answer the research question are **sex**, **screen**, and **tilt**. 
+
+## Part c  
+The *categorical variable* is **sex**. The *qualitative variables* are **screen** and **tilt**.
+
+# Question 2  
+
+
+```{r Graph, echo=TRUE}
+ggplot(a2, aes(x=screen, y=tilt, color=sex)) + # making x and y axis
+    geom_point(size=2, shape=20, alpha=0.5) + # making the points
+    geom_smooth(method="lm", se=FALSE, aes(group=sex)) + # add linear trend lines without the confidence interval
+    labs(title="Relationship Between Screen Time and Flexibility by Sex", x="Screen Time (hours/day)", y="Tilt (degrees)", color="Sex") +
+    theme_minimal() + # making it look nicer
+    scale_color_manual(values=c("pink","blue")) # blue for male and pink for female
+
+```
